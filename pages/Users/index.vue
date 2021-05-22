@@ -12,10 +12,15 @@
                 v-for="user in users"
                 :key="user.id"
               >
-                <div>
-                  <h2>{{ user.name }}</h2>
-                  <p>Email: {{ user.email }}</p>
-                  <p>Telefon: {{ user.phone }}</p>
+                <div class="user-wrapper">
+                  <div class="user-name">
+                    <h2>{{ user.name }}</h2>
+                    <p>Email: {{ user.email }}</p>
+                    <p>Telefon: {{ user.phone }}</p>
+                  </div>
+                  <div class="user-id-icon">
+                    <IdentificationIcon />
+                  </div>
                 </div>
               </li>
             </ul>
@@ -28,6 +33,7 @@
 
 <script>
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
+import IdentificationIcon from '~/components/icons/IdentificationIcon'
 
 export default {
   head() {
@@ -41,6 +47,9 @@ export default {
         }
       ]
     }
+  },
+  components: {
+    IdentificationIcon
   },
   computed: {
     users() {
@@ -121,17 +130,33 @@ export default {
           margin-bottom: 0;
         }
         
-        h2 {
-          font-size: 17px;
-          color: $text-dark-gray;
-          margin-bottom: 1px;
-        }
+        .user-wrapper {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
 
-        p {
-          color: $text-light-gray;
-          margin-bottom: 0;
-          font-size: 13px;
-          opacity: .8;
+          h2 {
+            font-size: 17px;
+            color: $text-dark-gray;
+            margin-bottom: 1px;
+          }
+
+          p {
+            color: $text-light-gray;
+            margin-bottom: 0;
+            font-size: 13px;
+            opacity: .8;
+          }
+
+          .user-id-icon {
+            svg {
+              width: 30px;
+              color: $text-light-gray;
+              cursor: pointer;
+              opacity: .7;
+            }
+          }
         }
       }
     }
