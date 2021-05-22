@@ -7,22 +7,38 @@
     </div>
     <div class="links-wrapper">
       <ul>
-        <li class="link">
+        <li class="link show" v-tooltip="{
+          content: 'Kontakt',
+          trigger: 'hover',
+          placement: 'top-end',
+        }">
           <NuxtLink to="/contact">
             <MailIcon />
           </NuxtLink>
         </li>
-        <li class="link">
+        <li class="link" v-tooltip="{
+          content: 'Zadania',
+          trigger: 'hover',
+          placement: 'top-end',
+        }">
           <NuxtLink to="/todos">
             <CollectionIcon />
           </NuxtLink>
         </li>
-        <li class="link">
+        <li class="link" v-tooltip="{
+          content: 'Użytkownicy',
+          trigger: 'hover',
+          placement: 'top-end',
+        }">
           <NuxtLink to="/users">
             <UserIcon />
           </NuxtLink>
         </li>
-        <li class="link">
+        <li class="link" v-tooltip="{
+          content: 'Umów spotkanie',
+          trigger: 'hover',
+          placement: 'top-end',
+        }">
           <NuxtLink to="/schedule">
             <CalendarIcon />
           </NuxtLink>

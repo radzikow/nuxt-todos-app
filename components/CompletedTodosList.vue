@@ -13,13 +13,11 @@
 
 <script>
 import CheckIcon from '~/components/icons/CheckIcon'
-import CompleatedTodoItem from '~/components/CompleatedTodoItem'
 
 export default {
   name: 'CompletedTodosList',
   components: {
-    CheckIcon,
-    CompleatedTodoItem
+    CheckIcon
   },
   props: ['todos']
 }
