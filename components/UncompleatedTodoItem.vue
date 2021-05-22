@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import CheckIcon from '~/components/icons/CheckIcon'
 
 export default {
@@ -20,8 +21,17 @@ export default {
   },
   props: ['todo'],
   methods: {
+    ...mapActions({
+      updateTodoStatus: 'todos/updateTodoStatus'
+    }),
     changeTodoStatus(todo) {
-        this.$emit('change-todo-status', todo);
+      const updatedTodo = {
+        userId: todo.userId,
+        id: todo.id,
+        title: todo.title,
+        completed: !todo.completed
+      }
+      this.updateTodoStatus(updatedTodo)
     }
   }
 }

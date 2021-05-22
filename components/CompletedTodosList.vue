@@ -5,7 +5,6 @@
       <CompleatedTodoItem 
         v-for="todo in todos"
         :key="todo.id"
-        v-on:change-todo-status="changeTodoStatus"
         :todo="todo"
       />
     </ul>
@@ -22,12 +21,7 @@ export default {
     CheckIcon,
     CompleatedTodoItem
   },
-  props: ['todos'],
-  methods: {
-    changeTodoStatus(todo) {
-        this.$emit('change-todo-status', todo)
-    }
-  }
+  props: ['todos']
 }
 </script>
 

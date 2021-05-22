@@ -3,30 +3,20 @@ import axios from 'axios'
 const url = 'https://jsonplaceholder.typicode.com/users'
 
 export const state = () => ({
-  list: [],
-  selectedUser: []
+  list: []
 })
 
 export const getters = {
-  allUsers: state => state.list,
-  selectedUser: state => state.selectedUser
+  allUsers: state => state.list
 }
 
 export const actions = {
-  // Get all users
   async fetchUsers({ commit }) {
-    const res = await axios.get(url + '?limit=100')
+    const res = await axios.get(url)
     commit('setUsers', res.data)
-  },
-  // Get user by id
-  async getUserById({ commit }, id) {
-    const res = await axios.get(url + '/' + id)
-    console.log(res.data)
-    commit('getUser', res.data)
   }
 }
 
 export const mutations = {
-  setUsers: (state, users) => state.list = users,
-  getUser: (state, user) => state.selectedUser = user
+  setUsers: (state, users) => state.list = users
 }
